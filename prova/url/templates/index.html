@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% if url %}
+        <p> <span>Sua URL encurtada : <a href="{{url.url_grande}}">http://localhost:8000/url/{{url.hash}}</a></span></p>
+
+    {% endif %}
+
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
